@@ -1,0 +1,118 @@
+﻿<div class="blade-content blade-medium">
+    <div class="blade-inner">
+        <div class="inner-block">
+            <div class="block">
+                <div class="column col-50">
+                    <div class="block">
+                        <label>Customer order number</label>
+                        <div class="input-control text">
+                            <input required type="text" ng-model="blade.currentEntity.number">
+                        </div>
+                    </div>
+                    <div class="block">
+                        <label>Status</label>
+                        <div class="input-control select">
+                            <!--ng-options="x for x in types"-->
+                            <select ng-model="blade.currentEntity.statusId" class="chosen-select">
+                                <option value="new">New</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <label>Fulfillment center</label>
+                        <div class="input-control select">
+                            <select ng-model="blade.currentEntity.fulfillmentId" class="chosen-select">
+                                <option value="bejieng">Beijing</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col-50">
+                    <div class="block">
+                        <label>from</label>
+                        <div class="input-control text">
+                            {{blade.currentEntity.createdDate | date:'short'}}
+                        </div>
+                    </div>
+                    <div class="block">
+                        <label>Site</label>
+                        <div class="input-control select">
+                            <select ng-model="blade.currentEntity.siteId" class="chosen-select">
+                                <option value="test">Test site</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <label>Customer</label>
+                        <div class="input-control select">
+                            <select ng-model="blade.currentEntity.customerId" class="chosen-select">
+                                <option value="Evant">Evant Moriss</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <p class="title">Custom attributes</p>
+            </div>
+            <div class="block">
+                <div class="column col-50">
+                    <div class="block">
+                        <label>Custom string field</label>
+                        <div class="input-control text">
+                            <input type="text">
+                        </div>
+                        <div class="input-control checkbox default-style block" data-role="input-control">
+                            <label>
+                                <input type="checkbox" name="r1">
+                                <span class="check"></span>
+                                Custom flag field
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col-50">
+                    <div class="block">
+                        <label>Custom text field</label>
+                        <div class="input-control textarea">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <p class="title">Documents</p>
+            </div>
+            <div class="tree-view">
+                <div class="tree-scroll">
+                    <ul class="tree">
+                        <li class="tree-item first">
+                            <div class="tree-block">
+                                <div class="inner">
+                                    <span class="tree-el title">{{blade.currentEntity.operationType +' #'+blade.currentEntity.number}}</span>
+                                    <span class="tree-el date">{{blade.currentEntity.createdDate | date}}</span>
+                                    <span class="tree-el price">{{blade.currentEntity.sum +' '+blade.currentEntity.currency}}</span>
+                                </div>
+                            </div>
+                            <ul class="tree-node" ng-if="(children = (blade.currentEntity.childrenOperations | filter: {parentOperationId: blade.currentEntity.id})).length>0">
+                                <li class="tree-item" ng-class="{'last':$last}" ng-repeat="data in children" ng-include="'document.html'"></li>
+                            </ul>
+                        </li>
+                        <script type="text/ng-template" id="document.html">
+                            <div class="tree-block">
+                                <div class="inner">
+                                    <span class="tree-el title">{{data.operationType +' #'+data.number}}</span>
+                                    <span class="tree-el date">{{data.createdDate | date}}</span>
+                                    <span class="tree-el price">{{data.sum +' '+data.currency}}</span>
+                                </div>
+                            </div>
+                            <ul class="tree-node" ng-if="(children = (blade.currentEntity.childrenOperations | filter: {parentOperationId: data.id})).length>0">
+                                <li class="tree-item" ng-class="{'last':$last}" ng-repeat="data in children" ng-include="'document.html'"></li>
+                            </ul>
+                        </script>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
