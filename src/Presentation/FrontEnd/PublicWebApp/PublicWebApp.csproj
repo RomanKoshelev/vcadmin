@@ -460,16 +460,16 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Mvc.sitemap" />
-    <Content Include="App_Data\Virto\Configuration\Store.config">
+    <Content Include="App_Data\Virto\Configuration.azure\Store.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Virto\Configuration\AppConfig.config" />
-    <Content Include="App_Data\Virto\Configuration\DynamicContent.config">
+    <Content Include="App_Data\Virto\Configuration.azure\AppConfig.config" />
+    <Content Include="App_Data\Virto\Configuration.azure\DynamicContent.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Virto\Configuration\Catalog.config" />
-    <Content Include="App_Data\Virto\Configuration\Security.config" />
-    <Content Include="App_Data\Virto\Configuration\connectionStrings.config" />
+    <Content Include="App_Data\Virto\Configuration.azure\Catalog.config" />
+    <Content Include="App_Data\Virto\Configuration.azure\Security.config" />
+    <Content Include="App_Data\Virto\Configuration.azure\connectionStrings.config" />
     <Content Include="App_Data\Virto\Configuration.local\AppConfig.config" />
     <Content Include="App_Data\Virto\Configuration.local\Catalog.config" />
     <Content Include="App_Data\Virto\Configuration.local\connectionStrings.config" />
@@ -478,6 +478,16 @@
     </Content>
     <Content Include="App_Data\Virto\Configuration.local\Security.config" />
     <Content Include="App_Data\Virto\Configuration.local\Store.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Virto\Configuration\AppConfig.config" />
+    <Content Include="App_Data\Virto\Configuration\Catalog.config" />
+    <Content Include="App_Data\Virto\Configuration\connectionStrings.config" />
+    <Content Include="App_Data\Virto\Configuration\DynamicContent.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Virto\Configuration\Security.config" />
+    <Content Include="App_Data\Virto\Configuration\Store.config">
       <SubType>Designer</SubType>
     </Content>
     <None Include="MvcSiteMapSchema.xsd">
